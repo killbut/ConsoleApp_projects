@@ -78,7 +78,7 @@ public class CombustionEngine
                     break;
                 case ConsoleKey.D2:
                     Console.WriteLine("\nВведите температуры окружающей среды");
-                    Start(Convert.ToInt32(Console.Read()));
+                    Start(Convert.ToInt32(Console.ReadLine()));
                     return;
                 case ConsoleKey.D3:
                     InputFromFile();
@@ -109,11 +109,9 @@ public class CombustionEngine
                 speed = V[counter];
                 if (counter < M.Length - 1) counter++;
             }
-
             _T_Engine += CalculateOverheat(speed, torque) - CalculateColling(Temperature);
             time++;
         }
-
         Console.WriteLine("Перегрев двигателя!");
         Console.WriteLine("Температура двигателя  = {0}", (int) _T_Engine);
         Console.WriteLine("Время прошедшее до перегрева = {0}", SecondsToMinute(time));
